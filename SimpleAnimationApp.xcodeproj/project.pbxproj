@@ -13,6 +13,7 @@
 		D559C95229831E7C00151200 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D559C95029831E7C00151200 /* Main.storyboard */; };
 		D559C95429831E7D00151200 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D559C95329831E7D00151200 /* Assets.xcassets */; };
 		D559C95729831E7D00151200 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D559C95529831E7D00151200 /* LaunchScreen.storyboard */; };
+		D559C9622983307900151200 /* SpringAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = D559C9612983307900151200 /* SpringAnimation */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D559C9622983307900151200 /* SpringAnimation in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +85,9 @@
 			dependencies = (
 			);
 			name = SimpleAnimationApp;
+			packageProductDependencies = (
+				D559C9612983307900151200 /* SpringAnimation */,
+			);
 			productName = SimpleAnimationApp;
 			productReference = D559C94729831E7C00151200 /* SimpleAnimationApp.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +116,9 @@
 				Base,
 			);
 			mainGroup = D559C93E29831E7C00151200;
+			packageReferences = (
+				D559C9602983307900151200 /* XCRemoteSwiftPackageReference "SpringAnimation" */,
+			);
 			productRefGroup = D559C94829831E7C00151200 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -301,9 +309,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sesoft.SimpleAnimationApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -328,9 +339,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = org.sesoft.SimpleAnimationApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -356,6 +370,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		D559C9602983307900151200 /* XCRemoteSwiftPackageReference "SpringAnimation" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/LexDeBash/SpringAnimation.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		D559C9612983307900151200 /* SpringAnimation */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D559C9602983307900151200 /* XCRemoteSwiftPackageReference "SpringAnimation" */;
+			productName = SpringAnimation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = D559C93F29831E7C00151200 /* Project object */;
 }
