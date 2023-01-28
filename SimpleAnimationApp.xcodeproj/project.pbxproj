@@ -14,6 +14,7 @@
 		D559C95429831E7D00151200 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D559C95329831E7D00151200 /* Assets.xcassets */; };
 		D559C95729831E7D00151200 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D559C95529831E7D00151200 /* LaunchScreen.storyboard */; };
 		D559C9622983307900151200 /* SpringAnimation in Frameworks */ = {isa = PBXBuildFile; productRef = D559C9612983307900151200 /* SpringAnimation */; };
+		D559C96429857C0400151200 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D559C96329857C0400151200 /* Animation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -25,6 +26,7 @@
 		D559C95329831E7D00151200 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D559C95629831E7D00151200 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D559C95829831E7D00151200 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D559C96329857C0400151200 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			children = (
 				D559C94A29831E7C00151200 /* AppDelegate.swift */,
 				D559C94C29831E7C00151200 /* SceneDelegate.swift */,
+				D559C96529857C0F00151200 /* Models */,
 				D559C94E29831E7C00151200 /* ViewController.swift */,
 				D559C95029831E7C00151200 /* Main.storyboard */,
 				D559C95329831E7D00151200 /* Assets.xcassets */,
@@ -67,6 +70,14 @@
 				D559C95829831E7D00151200 /* Info.plist */,
 			);
 			path = SimpleAnimationApp;
+			sourceTree = "<group>";
+		};
+		D559C96529857C0F00151200 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D559C96329857C0400151200 /* Animation.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -148,6 +159,7 @@
 			files = (
 				D559C94F29831E7C00151200 /* ViewController.swift in Sources */,
 				D559C94B29831E7C00151200 /* AppDelegate.swift in Sources */,
+				D559C96429857C0400151200 /* Animation.swift in Sources */,
 				D559C94D29831E7C00151200 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

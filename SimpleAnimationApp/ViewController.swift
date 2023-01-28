@@ -8,71 +8,54 @@
 import UIKit
 import SpringAnimation
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet weak var animatedView: SpringView!
     @IBOutlet weak var animationInfo: UILabel!
+    @IBOutlet weak var animationButton: UIButton!
     
-    @IBOutlet weak var btn: UIButton!
-    
-    private let animations: [AnimationPreset] = AnimationPreset.allCases
-    private var currentAnimationIndex = 0
+    private var generator = AnimationGenerator()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         animatedView.layer.cornerRadius = 10
-        setButtonName(index: currentAnimationIndex)
+        
+        animationButton.setTitle(generator.currentAnimation?.animation ?? "", for: .normal)
     }
 
     @IBAction func startAnimationAction() {
-        guard let aniname = btn.currentTitle else { return }
+        guard let animation = generator.currentAnimation else { return }
         
-        setAnimateParams(animation: aniname)
-        setLabelInfo()
+        setAnimateParams(animation: animation)
+        setLabelInfo(animation: animation)
         
         animatedView.animate()
-        
-        currentAnimationIndex += 1
-        if currentAnimationIndex == animations.count {
-            currentAnimationIndex = 0
-        }
-        
-        setButtonName(index: currentAnimationIndex)
+            
+        animationButton.setTitle(generator.nextAnimationName(), for: .normal)
     }
     
-    private func setAnimateParams(animation: String) {
-        animatedView.animation = animation
-        animatedView.delay = Double.random(in: 0.1...1.5)
-        animatedView.duration = Double.random(in: 0.1...1.5)
-        animatedView.force = Double.random(in: 0.1...1.5)
-        animatedView.curve = AnimationCurve.allCases.randomElement()?.rawValue ?? AnimationCurve.easeIn.rawValue
+}
+
+extension ViewController {
+    private func setAnimateParams(animation: Animation) {
+        animatedView.animation = animation.animation
+        animatedView.delay = animation.delay
+        animatedView.duration = animation.duration
+        animatedView.force = animation.force
+        animatedView.curve = animation.curve
     }
     
-    private func setLabelInfo() {
+    private func setLabelInfo(animation: Animation) {
         animationInfo.text = """
             Animation Info
-            name: \(animatedView.animation)
-            curve: \(animatedView.curve)
-            delay: \(animatedView.delay.formatted())
-            duration: \(animatedView.duration.formatted())
-            force: \(animatedView.force.formatted())
+            name: \(animation.animation)
+            curve: \(animation.curve)
+            delay: \(animation.delay.formatted())
+            duration: \(animation.duration.formatted())
+            force: \(animation.force.formatted())
             """
         animationInfo.numberOfLines = animationInfo.text?.split(separator: "\n").count ?? 3
-    }
-    
-    private func setButtonName(index: Int) {
-        let nextAniName = getAnimationNameBy(index: index) ?? ""
-        btn.setTitle(nextAniName, for: .normal)
-        
-    }
-    
-    private func getAnimationNameBy(index: Int) -> String? {
-        if !animations.indices.contains(index) {
-            return nil
-        } else {
-            return animations[index].rawValue
-        }
     }
     
 }
