@@ -14,25 +14,25 @@ final class ViewController: UIViewController {
     @IBOutlet weak var animationInfo: UILabel!
     @IBOutlet weak var animationButton: UIButton!
     
-    private var generator = AnimationGenerator()
+    private var animation = Animation.getRandomAniation()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         animatedView.layer.cornerRadius = 10
         
-        animationButton.setTitle(generator.currentAnimation?.animation ?? "", for: .normal)
+        animationButton.setTitle(animation.animation, for: .normal)
     }
 
     @IBAction func startAnimationAction() {
-        guard let animation = generator.currentAnimation else { return }
-        
         setAnimateParams(animation: animation)
         setLabelInfo(animation: animation)
         
         animatedView.animate()
+        
+        animation = Animation.getRandomAniation()
             
-        animationButton.setTitle(generator.nextAnimationName(), for: .normal)
+        animationButton.setTitle("Run \(animation.animation)", for: .normal)
     }
     
 }
@@ -47,14 +47,7 @@ extension ViewController {
     }
     
     private func setLabelInfo(animation: Animation) {
-        animationInfo.text = """
-            Animation Info
-            name: \(animation.animation)
-            curve: \(animation.curve)
-            delay: \(animation.delay.formatted())
-            duration: \(animation.duration.formatted())
-            force: \(animation.force.formatted())
-            """
+        animationInfo.text = animation.description
         animationInfo.numberOfLines = animationInfo.text?.split(separator: "\n").count ?? 3
     }
     
